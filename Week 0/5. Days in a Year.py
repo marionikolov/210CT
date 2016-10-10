@@ -18,7 +18,7 @@ def isYearLeap(year):
     return True
   else:
     return False
-      
+
 def isDateReal(day, month, year):
   #longMonths = [1,3,5,7,8,10,12]
   shortMonths = [4,6,9,11] # excluding February, because it is special
@@ -28,16 +28,16 @@ def isDateReal(day, month, year):
   elif month == 2:
     if day == 29:
       continue
-    
+
 def DateCalculations():
   # input
   # calidate it is a real day
   # calculate current number of day
   # calculate how many days left
   # return
-      
+
       # validate feb 30, 31, etc
-      
+
 # Determine whether leap year or not
-if userYear%4 == 0 or userYear%400 == 0:
-    leapyear = True
+#if userYear%4 == 0 or userYear%400 == 0:
+    #leapyear = True
