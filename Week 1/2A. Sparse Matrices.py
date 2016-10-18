@@ -82,72 +82,15 @@ class SparseMatrix:
             print("A TypeError occurred.")
             raise
 
-m1 = {(2,2): 1, (3,1): 2}
-m2 = {(1,1): 1, (3,1): 3}
+if __name__ == "__main__":
+    sm1 = SparseMatrix({(2,2): 1, (3,1): 2}, (3,2))
+    sm2 = SparseMatrix({(1,1): 1, (3,1): 3}, (3,2))
+    sm3 = SparseMatrix({(1,1): 4, (1,3): 1, (2,2): 1}, (2,3))
+    sm4 = SparseMatrix({(1,1): 1, (2,2): 2}, (3,2))
 
-m1a = {(1,1): 4, (1,3): 1, (2,2): 1}
-m2a = {(1,1): 1, (2,2): 2}
-m1aDim = (2, 3)
-m2aDim = (3, 2)
-
-def addMatrices(m1, m2):
-    m3 = {}
-    for key in m1:
-        if key in m2:
-            m3[key] = m1[key] + m2[key]
-        elif key not in m2:
-            m3[key] = m1[key]
-    for key in m2:
-        if key in m1:
-            pass
-        elif key not in m1:
-            m3[key] = m2[key]
-    return m3
-
-def substractMatrices(m1, m2):
-    m3 = {}
-    for key in m1:
-        if key in m2:
-            m3[key] = m1[key] - m2[key]
-        elif key not in m2:
-            m3[key] = -m1[key]
-    for key in m2:
-        if key in m1:
-            pass
-        elif key not in m1:
-            m3[key] = -m2[key]
-    return m3
-
-def multiplyMatrices(m1a, m2a, m1aDim, m2aDim):
-    if m1aDim[1] != m2aDim[0]:
-        print("Error. Cannot multiply due to...")
-    else:
-        m3a = {}
-        for j in range (1, m1aDim[0] + 1): # 2 rows in first matrix = rows in new matrix
-            for i in range(1,m2aDim[1] + 1): # 2 cols in second matrix = cols in new matrix
-                for k in range (1, m1aDim[1] + 1): # 3 cols in first matrix
-                    if (j,k) in m1a and (k,i) in m2a:
-                        if (j,i) not in m3a:
-                            m3a[(j,i)] = 0
-                        m3a[(j, i)] += m1a[(j,k)]*m2a[(k,i)]
-        return m3a
-
-m3 = addMatrices(m1, m2)
-m4 = substractMatrices(m1, m2)
-print(m3)
-print(m4)
-
-m5 = multiplyMatrices(m1a, m2a, m1aDim, m2aDim)
-print(m5)
-
-print("class test")
-
-sm1 = SparseMatrix(m1, (3,2))
-sm2 = SparseMatrix(m2, (3,2))
-sm12 = sm1 - sm2
-print (sm12)
-
-sm3 = SparseMatrix(m1a, m1aDim)
-sm4 = SparseMatrix(m2a, m2aDim)
-sm34 = sm3 * sm4
-print(sm34)
+    sm12a = sm1 + sm2
+    print(sm12a)
+    sm12s = sm1 - sm2
+    print(sm12s)
+    sm34m = sm3 * sm4
+    print(sm34m)
