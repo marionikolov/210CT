@@ -1,0 +1,30 @@
+string1 <- INPUT(string of n integers)
+string2 <- INPUT(string of m integers)
+outputString <- ""
+
+MUTUAL-ELEMENTS(string1, string2) // n^2
+    outputString <- ""
+    for i <- string1[1] ... string1[length(string1)]
+        for j <- string2[1] ... string2[length(string2)]
+            if i = j
+                outputString <- outputString + i
+    return outputString
+
+ALL-ELEMENTS-ONCE(string1, string2) // n^2
+    outputString <- string1
+    for i <- string2[1] ... string2[length(string2)]
+        for j <- string1[1] ... string1[length(string1)]
+            if i = j
+                pass
+            else
+                outputString <- outputString + i
+    return outputString
+
+FIRST-WITHOUT-SECOND(string1, string2) // n^2
+    outputString <- ""
+    for i <- string1[1] ... string1[length(string1)]
+        for j <- string2[1] ... string2[length(string2)]
+            if i = j
+                pass
+            else
+                outputString <- outputString + i
