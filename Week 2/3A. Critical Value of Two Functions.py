@@ -77,4 +77,4 @@ def findCriticalValue(a, b, c, d):
                     continue
         exponent += 1
 
-findCriticalValue(1,1,2,1)
+findCriticalValue(4,1,2,19)
