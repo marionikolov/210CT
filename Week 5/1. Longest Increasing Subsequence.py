@@ -13,5 +13,5 @@ def findLongestIncreasingSubsequence(seq):
     return seq[longest[0]:longest[0] + longest[1]]
 
 testList = [1,2,3,4,5,1,2,3,4,5,6,7,7,7,7,7,1,1,1,1,5,1,6,7,190,191,192,193,194,1]
-answer = findLongestConsecutiveSubsequence(testList)
+answer = findLongestIncreasingSubsequence(testList)
 print(answer)
