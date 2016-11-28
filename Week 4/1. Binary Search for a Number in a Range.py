@@ -11,10 +11,6 @@ def binarySearchWithinRange(lst, x, y):
     lastLoc = len(lst) - 1
     while lastLoc >= firstLoc:
         testLoc = firstLoc + (lastLoc - firstLoc)//2
-        print(firstLoc)
-        print(lastLoc)
-        print(testLoc)
-        print("---")
         if lst[testLoc] >= x and lst[testLoc] <= y:
             return True
         elif lst[testLoc] < x:

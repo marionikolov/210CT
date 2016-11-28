@@ -1,28 +1,12 @@
-def isSorted(lst):
-    for i in range(len(lst)-2):
-        if lst[i] > lst[i+1]:
-            return False
-    return True
-
-def binarySearchWithinRange(lst, x, y):
-    if isSorted(lst) != True:
-        lst.sort()
-    firstLoc = 0
-    lastLoc = len(lst) - 1
-    while lastLoc >= firstLoc:
+BINARY-SEARCH-WITHIN-RANGE(lst, x, y) // O(logn)
+    firstLoc <- 0
+    lastLoc <- length(lst) - 1
+    WHILE lastLoc >= firstLoc
         testLoc = firstLoc + (lastLoc - firstLoc)//2
-        print(firstLoc)
-        print(lastLoc)
-        print(testLoc)
-        print("---")
-        if lst[testLoc] >= x and lst[testLoc] <= y:
-            return True
-        elif lst[testLoc] < x:
+        IF lst[testLoc] >= x AND lst[testLoc] <= y
+            RETURN TRUE
+        ELSE IF lst[testLoc] < x
             firstLoc = testLoc + 1
-        else:
+        ELSE
             lastLoc = testLoc - 1
-    return False
-
-a = [2,3,4,7,9,13]
-result = binarySearchWithinRange(a, 10, 14)
-print(result)
+    RETURN FALSE
