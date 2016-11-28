@@ -13,6 +13,7 @@ def f(x, a, b):
 '''
 def detectChange(penultX, penultY, ultX, ultY):
     return (penultX - penultY) > (ultX - ultY)
+
 '''
     Returns the critical value of two linear functions a*x + b, i.e. the point at which the two plots of the two functions cross each other (in other words where f(x) = g(x)).
     The functions are defined by the user input for the multipliers and the constants.

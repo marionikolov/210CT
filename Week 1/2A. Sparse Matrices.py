@@ -1,6 +1,6 @@
 class SparseMatrix:
     """
-    Special class for sparse matrices. Instantiate a sparse matrix using two arguments:
+    Special class for sparse matrices. Instantiates a sparse matrix using two arguments:
     - a dictionary, whose keys as the coordinates of each number in the matrix and whose values are the numbers themselves;
     - a two-dimensional tuple containing the number of rows and columns of the matrix.
     Example: spMatrix = SparseMatrix({(1,1): 4, (1,3): 1, (2,2): 1}, (2, 3))
