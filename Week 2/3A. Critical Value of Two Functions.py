@@ -1,20 +1,20 @@
-'''
+"""
     Returns the solution of a linear function in the form a*x + b = 0
     PARAMETERS
         x, a, b - integers or floating-point numbers
-'''
+"""
 def f(x, a, b):
     return a*x + b
 
-'''
+"""
     Detects whether the change between the last two results of the functions is decreasing. Returns True if the change is decreasing and False if it is increasing.
     PARAMETERS
         penultX, penultY, ultX, ultY - integers
-'''
+"""
 def detectChange(penultX, penultY, ultX, ultY):
     return (penultX - penultY) > (ultX - ultY)
 
-'''
+"""
     Returns the critical value of two linear functions a*x + b, i.e. the point at which the two plots of the two functions cross each other (in other words where f(x) = g(x)).
     The functions are defined by the user input for the multipliers and the constants.
     findCriticalValue() uses an iteritive approach to test for the critical value. It does so by testing the change of the difference of results the functions yield, i.e. f(x) - g(x). It assumes that the change is decreasing by default. Firstly, it tests whether the critical value is 0. If it is not, it then begins testing exponents of 10, which is called the testValue, and decreases the testValue when it detects that the change has begun increasing. It initaites the test with the new testValue beginning at the last result where the change was decreasing.
@@ -28,7 +28,7 @@ def detectChange(penultX, penultY, ultX, ultY):
         exponent - the exponent applied to the testValue
         checkedForZero - determines whether findCriticalValue() has checked whether 0 is the critical value
         testValue - the current value we are applying for x in the two functions; determined by the current interval we are testing and the exponent applied to it; it's first value is always 0
-'''
+"""
 def findCriticalValue(a, b, c, d):
     resultsF = []
     resultsG = []
