@@ -1,0 +1,21 @@
+CLASS GRAPH
+    vertices <- empty dictionary
+
+    ADD-VERTEX(node)
+        newVertex = VERTEX(node)
+        vertices[node] = newVertex
+
+    ADD-EDGE(node1, node2)
+        IF node1 is not in vertices
+            ADD-VERTEX(node1)
+        IF node2 is not in vertices
+            ADD-VERTEX(node2)
+        vertices[node1].ADD-ADJACENT(node2)
+        vertices[node2].ADD-ADJACENT
+
+CLASS VERTEX(inpLabel)
+    label <- inpLabel
+    adjacent <- []
+
+    ADD-ADJACENT(node)
+        adjacent.add(node)
