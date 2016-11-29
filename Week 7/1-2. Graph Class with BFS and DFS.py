@@ -43,7 +43,9 @@ class Graph:
                 for e in self.vertices[u].adjacent:
                     stack.append(e)
                 visited.append(u)
-        return visited
+        file = open("DFSresult.txt", "w")
+        file.write(str(visited))
+        file.close()
 
     """
     Traverses the graph by searching every edge from the input start vertex.
@@ -58,7 +60,9 @@ class Graph:
                 for e in self.vertices[u].adjacent:
                     q.put(e)
                 visited.append(u)
-        return visited
+        file = open("BFSresult.txt", "w")
+        file.write(str(visited))
+        file.close()
 
     def __str__(self):
         return str([str(x) for x in self.vertices.values()]) # uses list comprehension to print all the vertices
@@ -93,7 +97,4 @@ if __name__ == '__main__':
     print(graph1)
 
     DFSresult = graph1.DFS(2)
-    print(DFSresult)
-
     BFSresult = graph1.BFS(2)
-    print(BFSresult)
