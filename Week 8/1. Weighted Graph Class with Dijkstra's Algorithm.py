@@ -66,10 +66,11 @@ class WeightedGraph:
         file.close()
 
     """
+    Implements Dijkstra's algorithm to find the shortest path from the source to the destination node.
     """
     def Dijkstra(self, source, destination):
-        source = self.vertices[source] # get the actual Vertex() object
-        destination = self.vertices[destination]
+        source = self.vertices[source] # get the actual Vertex() object from the reference dictionary
+        destination = self.vertices[destination] # get the actual Vertex() object from the reference dictionary
 
         source.tentativeWeight = 0 # the souce is at distance 0 from itself
         v = source # currently scanned vertex
@@ -77,7 +78,7 @@ class WeightedGraph:
 
         while v != destination:
             for u in v.adjacent.keys():
-                u = self.vertices[u] # see whether i can remove that
+                u = self.vertices[u] # get the actual Vertex() object
                 if v.tentativeWeight + v.adjacent[u.label] < u.tentativeWeight:
                     u.tentativeWeight = v.tentativeWeight + v.adjacent[u.label]
                     u.pre = v # store the return path
