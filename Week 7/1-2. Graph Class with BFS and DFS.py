@@ -1,3 +1,5 @@
+from queue import Queue
+
 class Graph:
     """
     Instantiates an undirected unweighted graph. Call empty and then fill in using the addVertex and addEdge methods.
@@ -28,6 +30,36 @@ class Graph:
         self.vertices[node1].addAdjacent(node2)
         self.vertices[node2].addAdjacent(node1)
 
+    """
+    Traverses the graph by visiting each vertex in turn starting with the input start vertex.
+    """
+    def DFS(self, start):
+        stack = []
+        visited = []
+        stack.append(start)
+        while len(stack) > 0:
+            u = stack.pop()
+            if u not in visited:
+                for e in self.vertices[u].adjacent:
+                    stack.append(e)
+                visited.append(u)
+        return visited
+
+    """
+    Traverses the graph by searching every edge from the input start vertex.
+    """
+    def BFS(self, start):
+        q = Queue()
+        visited = []
+        q.put(start)
+        while q.qsize() > 0:
+            u = q.get()
+            if u not in visited:
+                for e in self.vertices[u].adjacent:
+                    q.put(e)
+                visited.append(u)
+        return visited
+
     def __str__(self):
         return str([str(x) for x in self.vertices.values()]) # uses list comprehension to print all the vertices
 
@@ -37,7 +69,7 @@ class Vertex:
     """
     def __init__(self, label):
         self.label = label # the value of the vertex
-        self.adjacent = [] # list of all adjacent vertices references by their value
+        self.adjacent = [] # list of all adjacent vertices referenced by their value
 
     def addAdjacent(self, node):
         self.adjacent.append(node)
@@ -59,3 +91,9 @@ if __name__ == '__main__':
     graph1.addEdge(2, 4)
 
     print(graph1)
+
+    DFSresult = graph1.DFS(2)
+    print(DFSresult)
+
+    BFSresult = graph1.BFS(2)
+    print(BFSresult)
