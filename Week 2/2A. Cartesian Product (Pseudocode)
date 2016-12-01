@@ -1,0 +1,17 @@
+CARTESIAN-PRODUCT-RECURSIVE(listOfLists) // the input should be a list or array containing lists or arrays of the sets whose Cartesian product we are looking for
+    result <- empty list // initiate a list which will hold the resulting sets
+    FOR i <- listOfLists[1][1] ... listOfLists[1][length(listOfLists)]
+        FOR j <- listOfLists[2][1] ... listOfLists[2][length(listOfLists)]
+            IF i is of type list // if we pass in a list, append results to it
+                x <- i
+            ELSE // this means it is the code's first run; initiate a list to hold the products
+                x <- new list
+                x.add(i)
+            x.add(j)
+            result.add(j)
+    IF length(listOfLists[2 ... length(listOfLists)]) > 0 // if there are more sets to combine with the resultant set
+        result1 <- new list
+        result1.append(result)
+        RETURN CARTESIAN-PRODUCT-RECURSIVE(result1 + listOfLists[2 ... length(listOfLists)]) // call the recursive function on the resultant set and the remaining sets
+    ELSE
+        RETURN result

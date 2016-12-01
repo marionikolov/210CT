@@ -1,24 +1,19 @@
-# listOfList
+def cartesianProductRecursive(listOfLists):
+    result = [] # initiate a list which will hold the resulting sets
+    for i in listOfLists[0]:
+        for j in listOfLists[1]:
+            if type(i) == list: # if we pass in a list, append results to it
+                x = i.copy()
+            else: # this means it is the code's first run; initiate a list to hold the products
+                x = [i]
+            x.append(j)
+            result.append(x)
+    if len(listOfLists[2:]) > 0: # if there are more sets to combine with the resultant set
+        return cartesianProductRecursive([result] + listOfLists[2:])
+    else:
+        return result
 
-CARTESIAN-PRODUCT(set1, set2, ..., setN) // the input parameters are lists of numbers
-    outputSet <- NIL
-    for i <- set1[1] ... set1[length(set1)]
-        for j <- set2[1] ... set2[length(set2)]
-            ...
-            for n <- setN[1] ... setN[length(setN)]
-                outputSet.add((i, j, ..., n))
-    return outputSet
-
-    make it recursive!
-
-CARTESIAN-PRODUCT(listOfLists) // pass in a list containing lists of all sets
-    if listOfLists is empty
-        return () // empty tuple
-    else
-        for singleList in listsOfLists[1]
-            newListofLists <- NIL
-            for i <- listOfLists[2] ... listOfLists[length(listsOfLists)]
-                newListofLists.add(listOfLists[i])
-            for product in CARTESIAN-PRODUCT(newListofLists)
-                return tuple(singleList) + product
-
+if __name__ == '__main__':
+    testList = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    testProduct = cartesianProductRecursive(testList)
+    print(str(testProduct))
