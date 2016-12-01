@@ -78,4 +78,5 @@ def findCriticalValue(a, b, c, d):
                     continue
         exponent += 1
 
-findCriticalValue(4,1,2,19)
+if __name__ == "__main__":
+    findCriticalValue(4,1,2,19)

@@ -1,6 +1,6 @@
 string1 <- INPUT(string of n integers)
 string2 <- INPUT(string of m integers)
-outputString <- ""
+outputString <- empty string
 
 MUTUAL-ELEMENTS(string1, string2) // n^2
     outputString <- ""

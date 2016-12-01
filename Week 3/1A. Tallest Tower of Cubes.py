@@ -66,5 +66,6 @@ def buildCubeTower(inputCubes, towerOfCubes = [], discardedCubes = [], duplicate
             print(str(towerOfCubes))
             buildCubeTower(inputCubes, towerOfCubes, discardedCubes, False, True) # check the last two parameters
 
-data = [(2, 'red'), (1, 'purple'), (4, 'blue'), (2, "purple")]
-buildCubeTower(data)
+if __name__ == "__main__":
+    data = [(2, 'red'), (1, 'purple'), (4, 'blue'), (2, "purple")]
+    buildCubeTower(data)

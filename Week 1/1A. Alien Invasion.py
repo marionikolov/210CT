@@ -10,7 +10,7 @@ while currentDay < period:
     aliensArray.append(aliens)
     print(aliensArray)
     if currentDay >= hatchingPeriod - 1: # We assume that the first day counts as part of the incubation period.
-        aliens += aliensArray[currentDay-hatchingPeriod+1] * eggsDaily
+        aliens += aliensArray[currentDay - hatchingPeriod + 1] * eggsDaily
         print(aliens)
     currentDay += 1
 
