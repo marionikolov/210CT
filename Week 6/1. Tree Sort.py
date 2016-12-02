@@ -24,7 +24,7 @@ def treeInsert(tree, item):
 def inOrder(tree):
     stack = []
     currentNode = tree
-    finished = 0
+    finished = False
 
     while not finished:
         if currentNode is not None:
@@ -36,7 +36,7 @@ def inOrder(tree):
                 print(currentNode.value)
                 currentNode = currentNode.right
             else:
-                done = True
+                finished = True
 
 def treeSort(items):
     tree = treeInsert(None,items[0])
