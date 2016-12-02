@@ -1,15 +1,39 @@
+"""
+Used to find a cube of a given length within the listOfCubes provided. Returns the first cube it finds that fits the criterion or returns None if not appropriate cube is found.
+PARAMETERS
+    listOfCubes - list of cubes to search in the format (2, 'red') where the integer is the size of the cube and the string its colour
+    length - the required length of the cube
+"""
 def findFirstSmallerCube(listOfCubes, length):
     for item in listOfCubes:
         if item[0] < length:
             return item
-
+    return None
+"""
+Used to find a cube of the same length but a different colour within the listOfCubes provided. Returns the first cube it finds that fits the criteria or returns None if not appropriate cube is found.
+PARAMETERS
+    listOfCubes - list of cubes to search in the format (2, 'red') where the integer is the size of the cube and the string its colour
+    length - the required length of the cube
+    colour - the colour the cube must NOT be
+"""
 def findCubeDiffColour(listOfCubes, length, colour):
     for item in listOfCubes:
         if item[0] == length and item[1] != colour:
             return item
     return None
 
-# cube format: (7, "blue")
+"""
+Build the tallest tower of cubes possible from a set of input cubes following the given rules:
+- the cube size needs to be in descending order starting from the base; no two cubes of the same size can be put on top of each other;
+- colours of neighbouring cubes must vary; no two cubes of the same colour can be put on top of each other.
+PARAMETERS
+    inputCubes - a list of input cubes in the format (2, 'red') where the integer is the size of the cube and the string its colour
+    towerOfCubes - the resulting tower the code is building
+    discardedCubes - a list of cubes already used in the process, but discarded due to ineligibility
+    duplicates - a boolean value showing whether the inputCubes have been checked for duplicates or not; the value is set from the function itself
+    isSorted - a boolean value showing whether the inputCubes are sorted by size or not; the value is set from the function itself
+To call the function only provide the list of inputCubes in the correct format. E.g.: buildCubeTower([(2, 'red'), (1, 'purple'), (4, 'blue'), (2, "purple")])
+"""
 def buildCubeTower(inputCubes, towerOfCubes = [], discardedCubes = [], duplicates = True, isSorted = False):
     if len(inputCubes) == 0: # base case
         print(str(towerOfCubes))
@@ -59,7 +83,7 @@ def buildCubeTower(inputCubes, towerOfCubes = [], discardedCubes = [], duplicate
         currentCubeSize = towerOfCubes[-1][0]
         nextCubeToPut = findFirstSmallerCube(inputCubes, currentCubeSize)
         if nextCubeToPut is None:
-            buildCubeTower([], towerOfCubes, discardedCubes, False, True)
+            buildCubeTower([], towerOfCubes, discardedCubes, False, True) # explicitly call the base case
         else:
             towerOfCubes.append(nextCubeToPut)
             inputCubes.remove(nextCubeToPut)
