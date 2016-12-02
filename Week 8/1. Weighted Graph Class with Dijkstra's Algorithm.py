@@ -112,7 +112,7 @@ class Vertex:
     Returns a string version of the vertex and all its edges in the format vertex: [(edge1, weight1), (edge2, weight2)]
     """
     def __str__(self):
-        return str(self.label) + ": " + str([(x, k) for x,k in self.adjacent.items()]) # uses list comprehension to print all the adjacent vertices and the weight of the edges connceting them
+        return str(self.label) + ": " + str([(x, k) for x,k in self.adjacent.items()]) # uses list comprehension to print all the adjacent vertices and the weight of the edges connecting them
 
 if __name__ == '__main__':
     graph1 = WeightedGraph()

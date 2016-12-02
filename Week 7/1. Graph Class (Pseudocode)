@@ -1,5 +1,5 @@
 CLASS GRAPH
-    vertices <- empty dictionary
+    vertices <- empty dictionary # Used to hold references of each vertex through its value for easier access.
 
     ADD-VERTEX(node)
         newVertex = VERTEX(node)
