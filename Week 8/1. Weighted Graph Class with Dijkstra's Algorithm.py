@@ -32,7 +32,7 @@ class WeightedGraph:
         self.vertices[node2].addAdjacent(node1, weight)
 
     """
-    Traverses the graph by visiting each vertex in turn starting with the input start vertex.
+    Traverses the graph by visiting each vertex in turn starting with the input start vertex. Writes the result to a file.
     """
     def DFS(self, start):
         stack = []
@@ -49,7 +49,7 @@ class WeightedGraph:
         file.close()
 
     """
-    Traverses the graph by searching every edge from the input start vertex.
+    Traverses the graph by searching every edge from the input start vertex. Writes the result to a file.
     """
     def BFS(self, start):
         q = Queue()

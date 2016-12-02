@@ -24,6 +24,11 @@ class List(object):
       elif self.tail==n:
           self.tail=x
 
+    """
+    Removes a node from the linked list.
+    PARAMETERS
+        n - Node() object to be removed from the linked list
+    """
     def remove(self, n):
         if n.prev != None:
             n.prev.next = n.next

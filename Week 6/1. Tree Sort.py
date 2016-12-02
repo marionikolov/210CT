@@ -38,6 +38,11 @@ def inOrder(tree):
             else:
                 finished = True
 
+"""
+Implements the tree sort algorithm to sort a seuqence of integers. Creates a new tree and passes in the input integers ot the treeInsert function. Then prints the sorted set of integers in ascending order.
+PARAMETERS
+    items - list of integers
+"""
 def treeSort(items):
     tree = treeInsert(None,items[0])
     for i in items[1:]:
